@@ -83,6 +83,26 @@ curl -X PUT http://localhost:8000/notifications/preferences \
   -d '{"user_id": 123, "category": "SOCIAL", "enabled": false}'
 ```
 
+## Interactive API Testing
+
+Test endpoints directly through GitHub Actions:
+
+| Endpoint | Test Button |
+|----------|-------------|
+| Level Up | [![Test Level Up](https://img.shields.io/badge/Test_Endpoint-Run_Level_Up-blue?logo=github)](https://github.com/MohammadFawwaaz/GamingNotifications/actions/workflows/api-test.yml?query=workflow%3A%22API+Test+Runner%22+level-up) |
+| Item Acquired | [![Test Item Acquired](https://img.shields.io/badge/Test_Endpoint-Run_Item_Acquired-blue?logo=github)](https://github.com/MohammadFawwaaz/GamingNotifications/actions/workflows/api-test.yml?query=workflow%3A%22API+Test+Runner%22+item-acquired) |
+| Friend Request | [![Test Friend Request](https://img.shields.io/badge/Test_Endpoint-Run_Friend_Request-blue?logo=github)](https://github.com/MohammadFawwaaz/GamingNotifications/actions/workflows/api-test.yml?query=workflow%3A%22API+Test+Runner%22+friend-request) |
+| Update Preferences | [![Test Preferences](https://img.shields.io/badge/Test_Endpoint-Run_Update_Preferences-blue?logo=github)](https://github.com/MohammadFawwaaz/GamingNotifications/actions/workflows/api-test.yml?query=workflow%3A%22API+Test+Runner%22+update-preferences) |
+
+### How to Use:
+1. Click any "Test Endpoint" button above
+2. Click "Run workflow" on the GitHub Actions page
+3. Fill in the parameters (or use defaults)
+4. Click "Run workflow"
+5. View results in the workflow logs
+
+> **Note**: The first run might take longer as it builds the Docker image
+
 ## API Testing
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/dd81764f-b24a-44fe-ae87-a4a9719de6d2?action=collection%2Fimport&source=https://raw.githubusercontent.com/MohammadFawwaaz/GamingNotifications/main/postman/Gaming%20Notifications%20API.postman_collection.json)
