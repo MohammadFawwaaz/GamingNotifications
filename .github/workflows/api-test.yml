@@ -45,6 +45,15 @@ jobs:
   test-api:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+        
+      - name: Build Docker image
+        run: docker build -t gaming-notifications .
+        
       - name: Start service
         run: |
           docker run -d --name api-service -p 8000:8000 gaming-notifications
@@ -52,28 +61,31 @@ jobs:
           
       - name: Execute API call
         run: |
-          case "${{ github.event.inputs.endpoint }}" in
+          case "${{ inputs.endpoint }}" in
             level-up)
               curl -X POST http://localhost:8000/notifications/events/level-up \
                 -H "Content-Type: application/json" \
-                -d '{"user_id": ${{ github.event.inputs.user_id }}, "level": ${{ github.event.inputs.level }}}'
+                -d '{"user_id": ${{ inputs.user_id }}, "level": ${{ inputs.level }}}'
               ;;
             item-acquired)
               curl -X POST http://localhost:8000/notifications/events/item-acquired \
                 -H "Content-Type: application/json" \
-                -d '{"user_id": ${{ github.event.inputs.user_id }}, "item_name": "${{ github.event.inputs.item_name }}}'
+                -d '{"user_id": ${{ inputs.user_id }}, "item_name": "${{ inputs.item_name }}}'
               ;;
             friend-request)
               curl -X POST http://localhost:8000/notifications/events/friend-request \
                 -H "Content-Type: application/json" \
-                -d '{"sender_name": "${{ github.event.inputs.sender_name }}", "recipient_id": ${{ github.event.inputs.recipient_id }}}'
+                -d '{"sender_name": "${{ inputs.sender_name }}", "recipient_id": ${{ inputs.recipient_id }}}'
               ;;
             update-preferences)
               curl -X PUT http://localhost:8000/notifications/preferences \
                 -H "Content-Type: application/json" \
-                -d '{"user_id": ${{ github.event.inputs.user_id }}, "category": "${{ github.event.inputs.category }}", "enabled": ${{ github.event.inputs.enabled }}}'
+                -d '{"user_id": ${{ inputs.user_id }}, "category": "${{ inputs.category }}", "enabled": ${{ inputs.enabled }}}'
               ;;
           esac
           
       - name: Show logs
         run: docker logs api-service
+        
+      - name: Cleanup
+        run: docker rm -f api-service
