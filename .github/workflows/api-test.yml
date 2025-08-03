@@ -1,0 +1,79 @@
+name: API Test Runner
+
+on:
+  workflow_dispatch:
+    inputs:
+      endpoint:
+        description: 'Select endpoint to test'
+        required: true
+        type: choice
+        options:
+          - level-up
+          - item-acquired
+          - friend-request
+          - update-preferences
+      user_id:
+        description: 'User ID'
+        required: true
+        default: '100'
+      level:
+        description: 'Level (for level-up)'
+        required: false
+        default: '10'
+      item_name:
+        description: 'Item Name (for item-acquired)'
+        required: false
+        default: 'Sword of Azeroth'
+      recipient_id:
+        description: 'Recipient ID (for friend-request)'
+        required: false
+        default: '200'
+      sender_name:
+        description: 'Sender Name (for friend-request)'
+        required: false
+        default: 'PlayerX'
+      category:
+        description: 'Category (for preferences)'
+        required: false
+        default: 'SOCIAL'
+      enabled:
+        description: 'Enabled (for preferences)'
+        required: false
+        default: 'false'
+
+jobs:
+  test-api:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Start service
+        run: |
+          docker run -d --name api-service -p 8000:8000 gaming-notifications
+          sleep 5  # Wait for service to start
+          
+      - name: Execute API call
+        run: |
+          case "${{ github.event.inputs.endpoint }}" in
+            level-up)
+              curl -X POST http://localhost:8000/notifications/events/level-up \
+                -H "Content-Type: application/json" \
+                -d '{"user_id": ${{ github.event.inputs.user_id }}, "level": ${{ github.event.inputs.level }}}'
+              ;;
+            item-acquired)
+              curl -X POST http://localhost:8000/notifications/events/item-acquired \
+                -H "Content-Type: application/json" \
+                -d '{"user_id": ${{ github.event.inputs.user_id }}, "item_name": "${{ github.event.inputs.item_name }}}'
+              ;;
+            friend-request)
+              curl -X POST http://localhost:8000/notifications/events/friend-request \
+                -H "Content-Type: application/json" \
+                -d '{"sender_name": "${{ github.event.inputs.sender_name }}", "recipient_id": ${{ github.event.inputs.recipient_id }}}'
+              ;;
+            update-preferences)
+              curl -X PUT http://localhost:8000/notifications/preferences \
+                -H "Content-Type: application/json" \
+                -d '{"user_id": ${{ github.event.inputs.user_id }}, "category": "${{ github.event.inputs.category }}", "enabled": ${{ github.event.inputs.enabled }}}'
+              ;;
+          esac
+          
+      - name: Show logs
+        run: docker logs api-service
