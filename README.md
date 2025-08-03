@@ -2,6 +2,24 @@
 
 A real-time notification system for online gaming platforms that handles in-game and social events with user preference management.
 
+## System Architecture Diagrams
+
+### Overall Architecture
+https://diagrams/Architecture.png
+High-level component architecture showing separation of concerns
+
+### Architecture Flow
+https://diagrams/Architecture%2520Flow.png
+End-to-end flow from client request to notification delivery
+
+### Client Interaction Sequence
+https://diagrams/Sequence%2520-%2520Client%2520Interaction.png
+Sequence diagram showing the full notification workflow
+
+### Preference Update Flow
+https://diagrams/Sequence%2520-%2520Preference%2520Update%2520Flow.png
+Sequence diagram showing preference update workflow
+
 ## Features
 
 - **Real-time notifications** for in-game events:
