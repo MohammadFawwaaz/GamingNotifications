@@ -120,6 +120,3 @@ Test endpoints directly through GitHub Actions:
 3. Start your local service with `docker run -p 8000:8000 gaming-notifications`
 4. Execute the requests in Postman
 5. Check Docker logs for notification outputs
-```
-docker logs <container_id>
-```
