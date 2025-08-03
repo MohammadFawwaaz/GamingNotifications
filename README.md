@@ -1,7 +1,5 @@
 # Gaming Notifications Service
 
-![CI/CD Status](https://github.com/MohammadFawwaaz/gaming-notifications/actions/workflows/ci-cd.yml/badge.svg)
-
 A real-time notification system for online gaming platforms that handles in-game and social events with user preference management.
 
 ## Features
@@ -44,7 +42,7 @@ A real-time notification system for online gaming platforms that handles in-game
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/MohammadFawwaaz/gaming-notifications.git
+[git clone https://github.com/MohammadFawwaaz/gaming-notifications.git](https://github.com/MohammadFawwaaz/GamingNotifications.git)
 cd gaming-notifications
 ```
 
