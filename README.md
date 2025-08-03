@@ -85,9 +85,9 @@ curl -X PUT http://localhost:8000/notifications/preferences \
 
 ## API Testing
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/dd81764f-b24a-44fe-ae87-a4a9719de6d2?action=collection%2Fimport&source=https://raw.githubusercontent.com/MohammadFawwaaz/GamingNotifications/main/postman/GamingNotifications.postman_collection.json)
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/dd81764f-b24a-44fe-ae87-a4a9719de6d2?action=collection%2Fimport&source=https://raw.githubusercontent.com/MohammadFawwaaz/GamingNotifications/main/postman/Gaming%20Notifications%20API.postman_collection.json)
 
-[Download Postman Collection](https://github.com/MohammadFawwaaz/GamingNotifications/blob/c725a8905d6be46623e127dc6d1a3e78f19f64a6/postman/Gaming%20Notifications%20API.postman_collection.json)
+[Download Postman Collection](https://github.com/MohammadFawwaaz/GamingNotifications/raw/main/postman/Gaming%20Notifications%20API.postman_collection.json)
 
 ### Environment Variables
 | Variable  | Initial Value       | Current Value       |
@@ -100,3 +100,6 @@ curl -X PUT http://localhost:8000/notifications/preferences \
 3. Start your local service with `docker run -p 8000:8000 gaming-notifications`
 4. Execute the requests in Postman
 5. Check Docker logs for notification outputs
+```
+docker logs <container_id>
+```
