@@ -1,0 +1,7 @@
+class UserPreferences:
+    def __init__(self, user_id: int):
+        self.user_id = user_id
+        self.preferences = {
+            "GAME": True,
+            "SOCIAL": True
+        }
