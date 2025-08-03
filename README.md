@@ -9,7 +9,7 @@ A real-time notification system for online gaming platforms that handles in-game
 High-level component architecture showing separation of concerns
 
 ### Architecture Flow
-![Architecture Flow]([http://url/to/img.png](https://diagrams/Architecture%2520Flow.png))
+![Architecture Flow](https://github.com/MohammadFawwaaz/GamingNotifications/blob/main/diagram/Architecture%20Flow.png)
 End-to-end flow from client request to notification delivery
 
 ### Client Interaction Sequence
