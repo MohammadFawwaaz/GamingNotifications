@@ -42,7 +42,7 @@ A real-time notification system for online gaming platforms that handles in-game
 
 1. Clone the repository:
 ```bash
-[git clone https://github.com/MohammadFawwaaz/gaming-notifications.git](https://github.com/MohammadFawwaaz/GamingNotifications.git)
+git clone https://github.com/MohammadFawwaaz/gaming-notifications.git
 cd gaming-notifications
 ```
 
