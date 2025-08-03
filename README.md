@@ -5,7 +5,7 @@ A real-time notification system for online gaming platforms that handles in-game
 ## System Architecture Diagrams
 
 ### Overall Architecture
-![Architecture Diagram]([http://url/to/img.png](https://diagrams/Architecture.png))
+![Architecture Diagram]([diagram/Architecture Flow.png](https://github.com/MohammadFawwaaz/GamingNotifications/blob/36475fb1fd515bc7c02a314c7b97f7b5a931398f/diagram/Architecture%20Flow.png))
 High-level component architecture showing separation of concerns
 
 ### Architecture Flow
